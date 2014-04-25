@@ -12,6 +12,15 @@ parser.add_argument('folders', metavar='Folder', type=str, nargs='+',
 
 args = parser.parse_args()
 
+zoomlevels = {
+		  80: 2,
+		 200: 5,
+		 400: 10,
+		 800: 20,
+		1600: 40,
+		3200: 80,
+		}
+
 outcache = StringIO.StringIO()
 output = csv.writer(outcache, delimiter=',')
 
@@ -21,13 +30,17 @@ for folder in args.folders:
 		# skip files with no valid tiff file extension
 		if ext.lower() not in ['.tif', '.tiff']: continue
 		exif = GExiv2.Metadata(os.path.join(folder, filename))
-		ZOOM = ''
-		WIDTH,HEIGHT = '', ''
+		XRESOLUTION = float(exif['Exif.Image.XResolution'].split('/')[0]) / 25.4
+		YRESOLUTION = float(exif['Exif.Image.YResolution'].split('/')[0]) / 25.4
+		WIDTH  = float(exif['Exif.Image.ImageWidth']) / XRESOLUTION
+		HEIGHT = float(exif['Exif.Image.ImageLength']) / YRESOLUTION
+		ZOOM = 0
+		for key, value in zoomlevels.iteritems():
+			if XRESOLUTION > key and ZOOM < value: ZOOM = value
 		output.writerow([
 			exif['Exif.Image.ImageDescription'], exif['Exif.Image.DateTime'], '', # staining
-			filename, ZOOM, WIDTH, HEIGHT, exif['Exif.Image.ImageWidth'],
-			exif['Exif.Image.ImageLength'], exif['Exif.Image.XResolution'].split('/')[0],
-			exif['Exif.Image.YResolution'].split('/')[0],
+			filename, ZOOM, '%0.2f' % WIDTH, '%0.2f' % HEIGHT, exif['Exif.Image.ImageWidth'],
+			exif['Exif.Image.ImageLength'], '%0.2f' % XRESOLUTION, '%0.2f' % XRESOLUTION,
 			'%s %s' % (exif['Exif.Image.Make'], exif['Exif.Image.Model'])
 		])
 
