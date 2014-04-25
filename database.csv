@@ -7,11 +7,11 @@
 # HEIGHT:   flt - height of slide in mm
 # XPIXEL:   int - number of pixels in width
 # YPIXEL:   int - number of pixels in height
-# XRESOLUTION:  flt - pixels/inch
-# YRESOLUTION:  flt - pixels/icn
+# XRESOLUTION:  flt - pixels/mm
+# YRESOLUTION:  flt - pixels/mm
 # SLIDESCANNER: str - slidescanner used to digitize the slide
 #
-# date format is "YYYY:MM:DD HH:MM:SS"
+# date format is YYYY:MM:DD HH:MM:SS
 #
 
 NAME,DATE,STAINING,FILENAME,ZOOM,WIDTH,HEIGHT,XPIXEL,YPIXEL,XRESOLUTION,YRESOLUTION,SLIDESCANNER

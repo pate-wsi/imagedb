@@ -24,12 +24,12 @@ mapping = {
 		}
 
 zoomlevels = {
-		 2000: 2,
-		 5000: 5,
-		10000: 10,
-		20000: 20,
-		40000: 40,
-		80000: 80,
+		  80: 2,
+		 200: 5,
+		 400: 10,
+		 800: 20,
+		1600: 40,
+		3200: 80,
 		}
 
 for folder in args.folders:
@@ -50,12 +50,14 @@ for folder in args.folders:
 					 'XRESOLUTION', 'YRESOLUTION']:
 			e[item] = e[item][0]
 		e['SLIDESCANNER'] = '%s %s' % (e['MAKE'], e['MODEL'])
-		WIDTH  = float(e['XPIXEL']) / float(e['XRESOLUTION']) * 25.4
-		HEIGHT = float(e['YPIXEL']) / float(e['YRESOLUTION']) * 25.4
+		e['XRESOLUTION'] = float(e['XRESOLUTION']) / 25.4
+		e['YRESOLUTION'] = float(e['YRESOLUTION']) / 25.4
+		WIDTH  = float(e['XPIXEL']) / e['XRESOLUTION']
+		HEIGHT = float(e['YPIXEL']) / e['YRESOLUTION']
 		ZOOM = 0
 		for key, value in zoomlevels.iteritems():
 			if float(e['XRESOLUTION']) > key and ZOOM < value: ZOOM = value
-		print ('%s,%s,,%s,%i,%0.2f,%0.2f,%s,%s,%s,%s,%s' %
+		print ('%s,%s,,%s,%i,%0.2f,%0.2f,%s,%s,%0.2f,%0.2f,%s' %
 		(e['NAME'], e['DATE'], filename, ZOOM, WIDTH, HEIGHT,
 		 e['XPIXEL'], e['YPIXEL'], e['XRESOLUTION'], e['YRESOLUTION'],
 		 e['SLIDESCANNER']) )
