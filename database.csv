@@ -1,3 +1,15 @@
-ID,NAME,DATE,STAINING,FILENAME
-1,Testicular atrophy,2014-02-18,HE,1_testicular_atrophy.tif
-2,Benign prostatic hyperplasia,2014-02-18,HE,2_benign_prostatic_hyperplasia.tif
+# NAME:     str - human readable
+# DATE:     dat - acquisition date of the slide
+# STAINING: str - staining of the slide
+# FILENAME: str - filename in repo
+# ZOOM:     int - approximation of the zoom factor
+# WIDTH:    flt - width of slide in cm
+# HEIGHT:   flt - height of slide in cm
+# PIXELX:   int - number of pixels in width
+# PIXELY:   int - number of pixels in height
+# DENSITY:  flt - pixels/cm
+# SLIDESCANNER: str - slidescanner used to digitize the slide
+#
+# dates are written in YYY-MM-DD
+#
+NAME,DATE,STAINING,FILENAME,WIDTH,HEIGHT,PIXELX,PIXELY,DENSITY,SLIDESCANNER
