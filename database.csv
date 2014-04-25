@@ -1,17 +1,1 @@
-# NAME:     str - human readable
-# DATE:     dat - acquisition date of the slide
-# STAINING: str - staining of the slide
-# FILENAME: str - filename in repo
-# ZOOM:     int - approximation of the zoom factor
-# WIDTH:    flt - width of slide in mm
-# HEIGHT:   flt - height of slide in mm
-# XPIXEL:   int - number of pixels in width
-# YPIXEL:   int - number of pixels in height
-# XRESOLUTION:  flt - pixels/mm
-# YRESOLUTION:  flt - pixels/mm
-# SLIDESCANNER: str - slidescanner used to digitize the slide
-#
-# date format is YYYY:MM:DD HH:MM:SS
-#
-
 NAME,DATE,STAINING,FILENAME,ZOOM,WIDTH,HEIGHT,XPIXEL,YPIXEL,XRESOLUTION,YRESOLUTION,SLIDESCANNER
