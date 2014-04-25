@@ -3,13 +3,15 @@
 # STAINING: str - staining of the slide
 # FILENAME: str - filename in repo
 # ZOOM:     int - approximation of the zoom factor
-# WIDTH:    flt - width of slide in cm
-# HEIGHT:   flt - height of slide in cm
-# PIXELX:   int - number of pixels in width
-# PIXELY:   int - number of pixels in height
-# DENSITY:  flt - pixels/cm
+# WIDTH:    flt - width of slide in mm
+# HEIGHT:   flt - height of slide in mm
+# XPIXEL:   int - number of pixels in width
+# YPIXEL:   int - number of pixels in height
+# XRESOLUTION:  flt - pixels/inch
+# YRESOLUTION:  flt - pixels/icn
 # SLIDESCANNER: str - slidescanner used to digitize the slide
 #
-# dates are written in YYY-MM-DD
+# date format is "YYYY:MM:DD HH:MM:SS"
 #
-NAME,DATE,STAINING,FILENAME,WIDTH,HEIGHT,PIXELX,PIXELY,DENSITY,SLIDESCANNER
+
+NAME,DATE,STAINING,FILENAME,ZOOM,WIDTH,HEIGHT,XPIXEL,YPIXEL,XRESOLUTION,YRESOLUTION,SLIDESCANNER
