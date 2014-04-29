@@ -30,15 +30,21 @@ for folder in args.folders:
 		# skip files with no valid tiff file extension
 		if ext.lower() not in ['.tif', '.tiff']: continue
 		exif = GExiv2.Metadata(os.path.join(folder, filename))
-		XRESOLUTION = float(exif['Exif.Image.XResolution'].split('/')[0]) / 25.4
-		YRESOLUTION = float(exif['Exif.Image.YResolution'].split('/')[0]) / 25.4
+		for tag in ['Exif.Image.ImageDescription', 'Exif.Image.DateTime']: # clean up tags
+			try: exif[tag]
+			except: exif[tag] = ' '
+		XRESOLUTION = float(exif['Exif.Image.XResolution'].split('/')[0])
+		YRESOLUTION = float(exif['Exif.Image.YResolution'].split('/')[0])
+		if exif['Exif.Image.ResolutionUnit'] == 2: # convert inch to cm
+			XRESOLUTION, YRESOLUTION = XRESOLUTION / 25.4, YRESOLUTION/ 25.4
+			exif['Exif.Image.ResolutionUnit'] = 3
 		WIDTH  = float(exif['Exif.Image.ImageWidth']) / XRESOLUTION
 		HEIGHT = float(exif['Exif.Image.ImageLength']) / YRESOLUTION
 		ZOOM = 0
 		for key, value in zoomlevels.iteritems():
 			if XRESOLUTION > key and ZOOM < value: ZOOM = value
 		output.writerow([
-			exif['Exif.Image.ImageDescription'], exif['Exif.Image.DateTime'], '', # staining
+			exif['Exif.Image.ImageDescription'].strip(), exif['Exif.Image.DateTime'].strip(), '', # staining
 			filename, ZOOM, '%0.2f' % WIDTH, '%0.2f' % HEIGHT, exif['Exif.Image.ImageWidth'],
 			exif['Exif.Image.ImageLength'], '%0.2f' % XRESOLUTION, '%0.2f' % XRESOLUTION,
 			'%s %s' % (exif['Exif.Image.Make'], exif['Exif.Image.Model'])
