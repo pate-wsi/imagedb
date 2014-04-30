@@ -4,7 +4,7 @@
 from __future__ import print_function
 import os, StringIO, re, csv
 from argparse import ArgumentParser
-from gi.repository import GExiv2
+from subprocess import Popen
 
 
 parser = ArgumentParser(description='Extract metadata from tiff images.')
@@ -28,9 +28,7 @@ for row in db:
 		print ('%s => %s' % (sourcefn, targetfn))
 		os.rename(os.path.join(args.folder, sourcefn),
 				  os.path.join(args.folder, targetfn))
-		exif = GExiv2.Metadata(os.path.join(args.folder, targetfn))
-		exif['Exif.Image.ImageDescription'] = row[0]
-		exif.save_file()
+		Popen(['tiffset', '-s', '270', row[0], os.path.join(args.folder, targetfn)])
 		row[3] = targetfn
 	output.writerow(row)
 inputfile.close()
