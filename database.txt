@@ -12,3 +12,6 @@ YRESOLUTION:  flt - pixels/mm
 SLIDESCANNER: str - slidescanner used to digitize the slide
 
 date format is YYYY:MM:DD HH:MM:SS
+
+Stainings:
+HE: Hematoxylin and eosin stain

@@ -1,1 +1,5 @@
 NAME,DATE,STAINING,FILENAME,ZOOM,WIDTH,HEIGHT,XPIXEL,YPIXEL,XRESOLUTION,YRESOLUTION,SLIDESCANNER
+carcinoid of the appendix,2011:11:05 01:45:03,HE,carcinoid_of_the_appendix.tif,80,1.72,2.02,75392,88320,43788.00,43788.00,Hamamatsu C9600
+parathyroid adenoma,2011:11:05 01:54:15,HE,parathyroid_adenoma.tif,80,1.99,1.63,87296,71424,43788.00,43788.00,Hamamatsu C9600
+cirrhosis,2011:11:04 22:49:00,HE,cirrhosis.tif,80,1.90,1.33,83328,58368,43788.00,43788.00,Hamamatsu C9600
+recanalisation of occluded vessel,2011:11:04 22:35:14,HE,recanalisation_of_occluded_vessel.tif,80,3.08,2.26,134912,98816,43788.00,43788.00,Hamamatsu C9600

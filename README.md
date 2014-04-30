@@ -1,7 +1,8 @@
 Database of Whole Slide Images
 ==============================
 
-This image database is part of the [Pate project].
+This is a whole slide image database containing high resolution histological and pathological slides. It is part of the [Pate project].
+
 
 License:
 --------
@@ -15,13 +16,22 @@ Attribution:
 -  [Christoph Brochhausen] and [Hinrich B. Winther]
 -  [C. James Kirkpatrick]
 
+Christoph Brochhausen and Hinrich B. Winther contributed equally to this work
+
+
 ### Affiliation
 [REPAIR-lab], [Institute of Pathology], [University Medical Centre Mainz], Germany, Mainz, Germany
 
 
 Images:
 -------
-A list of all files with metadata can be found in the [database]. The actual image files can be downloaded from [http://fqdn/imagedb][imagedb].
+A list of all files with metadata can be found in the [database]. The actual image files can be downloaded from [http://imagedb.proven-inconclusive.com][imagedb].
+
+
+### Keywords:
+
+image database, whole slide imaging, wsi, e-learning, virtual microscope, telepathology
+
 
 [Pate project]: https://github.com/pate-wsi
 [CCLogo]: http://i.creativecommons.org/l/by-sa/4.0/88x31.png
@@ -33,4 +43,4 @@ A list of all files with metadata can be found in the [database]. The actual ima
 [Institute of Pathology]: https://www.unimedizin-mainz.de/pathologie
 [University Medical Centre Mainz]: https://www.unimedizin-mainz.de
 [database]: ./database.csv
-[imagedb]: http://fqdn/imagedb
+[imagedb]: http://imagedb.proven-inconclusive.com
